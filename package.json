@@ -7,13 +7,15 @@
   "main": "src/index.js",
   "scripts": {
     "lint:commits": "commitlint --to HEAD",
+    "lint:example": "cd example && npm run lint",
     "lint:js": "eslint .",
     "lint:md": "markdown-link-check *.md",
-    "lint": "npm run lint:commits && npm run lint:js && npm run lint:md",
+    "lint": "npm run lint:commits && npm run lint:js && npm run lint:md && npm run lint:example",
     "release:git": "standard-version",
     "release:gh": "conventional-github-releaser",
-    "test:js": "vitest run test",
-    "test": "npm run test:js"
+    "test:example": "cd example && npm test",
+    "test:js": "vitest run --dir test",
+    "test": "npm run test:js && npm run test:example"
   },
   "author": "Maciej Laciak <maciej.laciak@gmail.com> (https://github.com/mstream/)",
   "repository": {
@@ -26,7 +28,7 @@
     "@commitlint/config-conventional": "^17",
     "conventional-github-releaser": "^3",
     "eslint": "^8",
-    "markdown-link-check": "^3.10.3",
+    "markdown-link-check": "^3",
     "standard-version": "^9",
     "vitest": "~0.27"
   }

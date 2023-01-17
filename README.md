@@ -4,5 +4,5 @@ A dependency injection for JavaScript.
 
 ## Usage Examples
 
-- [reference application](example/index.js)
+- [reference application](example/src/index.js)
 - [tests](test/index.test.js)

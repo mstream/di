@@ -2,14 +2,25 @@
   "name": "example",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "type": "module",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:js": "eslint --config ../.eslintrc.json .",
+    "lint:md": "markdown-link-check *.md",
+    "lint": "npm run lint:js && npm run lint:md",
+    "test:js": "vitest run --dir test",
+    "test": "npm run test:js"
   },
-  "author": "",
+  "author": "Maciej Laciak <maciej.laciak@gmail.com> (https://github.com/mstream/)",
   "license": "ISC",
   "dependencies": {
-    "di": "file:.."
+    "@mstream/di": "file:.."
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "markdown-link-check": "^3",
+    "sinon": "^15",
+    "vitest": "~0.27"
   }
 }
