@@ -2,7 +2,7 @@ name: Release
 
 on:
   push:
-    branches: 
+    branches:
       - master
 
 jobs:
@@ -12,9 +12,9 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
- 
+          node-version: "18.x"
+          registry-url: "https://registry.npmjs.org"
+
       - uses: actions/checkout@v3
 
       - name: Install dependencies
@@ -23,25 +23,24 @@ jobs:
           cd example && npm ci
 
       - name: Lint code
-        run: 'npm run lint'
-      
-      - name: Test code
-        run: 'npm test'
+        run: "npm run lint"
 
-      - name: Set up git user email for releasing 
+      - name: Test code
+        run: "npm test"
+
+      - name: Set up git user email for releasing
         run: 'git config --global user.email "ci@github.com"'
 
       - name: Set up git user name for releasing
         run: 'git config --global user.name "ci"'
-      
+
       - name: Release source
-        run: 'npm run release:git'
+        run: "npm run release:git"
 
       - name: Push the release commit
-        run: 'git push --follow-tags origin master'
+        run: "git push --follow-tags origin master"
 
       - name: Create GitHub release
-        run: 'npm run release:gh'
-        env: 
+        run: "npm run release:gh"
+        env:
           CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-

@@ -10,7 +10,7 @@
     "lint:example": "cd example && npm run lint",
     "lint:js": "eslint .",
     "lint:md": "markdown-link-check *.md",
-    "lint": "npm run lint:commits && npm run lint:js && npm run lint:md && npm run lint:example",
+    "lint": "npx prettier --check . && npm run lint:commits && npm run lint:js && npm run lint:md && npm run lint:example",
     "release:git": "standard-version",
     "release:gh": "conventional-github-releaser",
     "test:example": "cd example && npm test",
@@ -29,7 +29,9 @@
     "@commitlint/config-conventional": "^17",
     "conventional-github-releaser": "^3",
     "eslint": "^8",
+    "eslint-config-prettier": "^8.6.0",
     "markdown-link-check": "^3",
+    "prettier": "^2",
     "standard-version": "^9",
     "vitest": "~0.27"
   }
