@@ -31,6 +31,14 @@ describe(
         expect(container.context.string).toBe(`abc1`)
       }
     )
+    it(
+      `prevents from overriding creators`,
+      () => {
+        const container = createContainer()
+        container.register(`string`, () => `abc`)
+        expect(() => container.register(`string`, () => `def`)).toThrow(/"string" is already registered in the context/)
+      }
+    )
   }
 )
 
