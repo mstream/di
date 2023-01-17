@@ -5,7 +5,7 @@ import loggerCreator, { WARNING } from './logger.js'
 const container = createContainer()
 
 container.register(
-  'console',
+  `console`,
   () => console,
 )
 
