@@ -9,6 +9,7 @@
     "lint:js": "eslint --config ../.eslintrc.json .",
     "lint:md": "markdown-link-check *.md",
     "lint": "npm run lint:js && npm run lint:md",
+    "start": "node src/index.js",
     "test:js": "vitest run --dir test",
     "test": "npm run test:js"
   },

@@ -1,6 +1,6 @@
-export default ({ logger }) => {
-  logger.debug(`this is debug log`)
-  logger.error(`this is error log`)
-  logger.info(`this is info log`)
-  logger.warning(`this is warning log`)
+export default ({ logger }) => (message) => {
+  logger.debug(message)
+  logger.error(message)
+  logger.info(message)
+  logger.warning(message)
 }

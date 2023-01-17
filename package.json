@@ -15,7 +15,8 @@
     "release:gh": "conventional-github-releaser",
     "test:example": "cd example && npm test",
     "test:js": "vitest run --dir test",
-    "test": "npm run test:js && npm run test:example"
+    "test": "npm run test:js && npm run test:example",
+    "start:example": "cd example && npm start"
   },
   "author": "Maciej Laciak <maciej.laciak@gmail.com> (https://github.com/mstream/)",
   "repository": {

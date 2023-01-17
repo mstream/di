@@ -5,6 +5,11 @@ import loggerCreator, { WARNING } from './logger.js'
 const container = createContainer()
 
 container.register(
+  'console',
+  () => console,
+)
+
+container.register(
   `config`,
   () => ({ logLevel: WARNING }),
 )
@@ -19,4 +24,4 @@ container.register(
   appCreator,
 )
 
-container.context.app
+container.context.app(`Hello World!`)
