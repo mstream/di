@@ -6,13 +6,16 @@ createContainer()
   .register(
     `console`,
     () => console,
-  ).register(
+  )
+  .register(
     `config`,
     () => ({ logLevel: WARNING }),
-  ).register(
+  )
+  .register(
     `logger`,
     loggerCreator,
-  ).register(
+  )
+  .register(
     `app`,
     appCreator,
   )
