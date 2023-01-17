@@ -23,6 +23,8 @@ export function createContainer() {
         },
       },
     )
+
+    return this
   }
 
   return { context, register }

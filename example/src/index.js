@@ -7,19 +7,13 @@ const container = createContainer()
 container.register(
   `console`,
   () => console,
-)
-
-container.register(
+).register(
   `config`,
   () => ({ logLevel: WARNING }),
-)
-
-container.register(
+).register(
   `logger`,
   loggerCreator,
-)
-
-container.register(
+).register(
   `app`,
   appCreator,
 )
