@@ -2,11 +2,17 @@
   "name": "@mstream/di",
   "version": "1.0.0",
   "description": "",
+  "private": false,
   "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint .",
-    "test": "vitest run test"
+    "lint:commits": "commitlint --to HEAD",
+    "lint:js": "eslint .",
+    "lint": "npm run lint:commits && npm run lint:js",
+    "release:git": "standard-version",
+    "release:gh": "conventional-github-releaser",
+    "test:js": "vitest run test",
+    "test": "npm run test:js"
   },
   "author": "Maciej Laciak <maciej.laciak@gmail.com> (https://github.com/mstream/)",
   "repository": {
@@ -15,7 +21,11 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/cli": "^17",
+    "@commitlint/config-conventional": "^17",
+    "conventional-github-releaser": "^3",
     "eslint": "^8",
+    "standard-version": "^9",
     "vitest": "~0.27"
   }
 }
