@@ -11,7 +11,7 @@
     "lint": "npm run lint:js && npm run lint:md",
     "start": "node src/index.js",
     "test:js": "vitest run --dir test",
-    "test": "npm run test:js"
+    "test": "npm run test:js && npm start 2>/dev/null"
   },
   "author": "Maciej Laciak <maciej.laciak@gmail.com> (https://github.com/mstream/)",
   "license": "ISC",
