@@ -1,4 +1,4 @@
-function createContainer() {
+export function createContainer() {
   const cache = {}
   const context = {}
 
@@ -28,5 +28,4 @@ function createContainer() {
   return { context, register }
 }
 
-module.exports = { createContainer }
 

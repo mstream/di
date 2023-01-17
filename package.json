@@ -8,7 +8,8 @@
   "scripts": {
     "lint:commits": "commitlint --to HEAD",
     "lint:js": "eslint .",
-    "lint": "npm run lint:commits && npm run lint:js",
+    "lint:md": "markdown-link-check *.md",
+    "lint": "npm run lint:commits && npm run lint:js && npm run lint:md",
     "release:git": "standard-version",
     "release:gh": "conventional-github-releaser",
     "test:js": "vitest run test",
@@ -25,6 +26,7 @@
     "@commitlint/config-conventional": "^17",
     "conventional-github-releaser": "^3",
     "eslint": "^8",
+    "markdown-link-check": "^3.10.3",
     "standard-version": "^9",
     "vitest": "~0.27"
   }
