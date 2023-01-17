@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { createContainer } from '.'
 
-
 describe(
   `createContainer()`,
   () => {
@@ -37,6 +36,20 @@ describe(
         const container = createContainer()
         container.register(`string`, () => `abc`)
         expect(() => container.register(`string`, () => `def`)).toThrow(/"string" is already registered in the context/)
+      }
+    )
+    it(
+      `does not execute creators more than once`,
+      () => {
+        let counter = 0
+        const container = createContainer()
+        container.register(`string`, () => {
+          counter += 1
+          return `abc`
+        })
+        container.context.string
+        expect(container.context.string).toBe(`abc`)
+        expect(counter).toBe(1)
       }
     )
   }

@@ -1,4 +1,5 @@
 function createContainer() {
+  const cache = {}
   const context = {}
 
   function register(name, creator) {
@@ -8,7 +9,14 @@ function createContainer() {
     Object.defineProperty(
       context,
       name,
-      { get() { return creator(context) } }
+      {
+        get() {
+          if (!(name in cache)) {
+            cache[name] = creator(context)
+          }
+          return cache[name]
+        }
+      }
     )
   }
 
