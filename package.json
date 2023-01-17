@@ -24,7 +24,9 @@
     "url": "git+https://github.com/mstream/di.git"
   },
   "license": "ISC",
-  "keywords": ["dependency injection"],
+  "keywords": [
+    "dependency injection"
+  ],
   "devDependencies": {
     "@commitlint/cli": "^17",
     "@commitlint/config-conventional": "^17",
