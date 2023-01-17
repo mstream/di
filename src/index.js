@@ -3,6 +3,10 @@ export function createContainer() {
   const context = {};
 
   function register(name, creator) {
+    if (typeof creator !== `function`) {
+      throw Error(`"${name}" creator is not a function`);
+    }
+
     if (name in context) {
       throw Error(`"${name}" is already registered in the context`);
     }

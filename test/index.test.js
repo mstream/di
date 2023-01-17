@@ -21,6 +21,12 @@ describe(`createContainer()`, () => {
     container.register(`number`, () => 1);
     expect(container.context.string).toBe(`abc1`);
   });
+  it(`fails when creator is not a function`, () => {
+    const container = createContainer();
+    expect(() => container.register(`string`, `abc`)).toThrow(
+      /"string" creator is not a function/
+    );
+  });
   it(`prevents from overriding creators`, () => {
     const container = createContainer();
     container.register(`string`, () => `abc`);
