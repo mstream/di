@@ -1,5 +1,5 @@
 {
-  "name": "di",
+  "name": "@mstream/di",
   "version": "1.0.0",
   "description": "",
   "type": "module",
@@ -8,7 +8,11 @@
     "lint": "eslint .",
     "test": "vitest run test"
   },
-  "author": "",
+  "author": "Maciej Laciak <maciej.laciak@gmail.com> (https://github.com/mstream/)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mstream/di.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8",
