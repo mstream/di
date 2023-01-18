@@ -4,6 +4,7 @@
     "node": true,
     "es6": true
   },
+  "ignorePatterns": ["CHANGELOG.md"],
   "parserOptions": {
     "ecmaVersion": 2021,
     "sourceType": "module"
