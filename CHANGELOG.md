@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 2.0.0 (2023-01-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* The "createContainer" function was renamed to "contextBuilder".
+* Context is not a member of the container any more,
+it is created by calling "build" method of the context builder.
+
+### Features
+
+* allow eager initialization of selected dependencies ([be1c99b](https://github.com/mstream/di/commit/be1c99b4e34b5d5f8d12e72039f41bb3e77c6727))
+
 ### 1.1.1 (2023-01-17)
 
 ## 1.1.0 (2023-01-17)
