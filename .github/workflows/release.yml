@@ -22,6 +22,11 @@ jobs:
           npm ci
           cd example && npm ci
 
+      - name: Check generation
+        run: |
+          npm run generate
+          ./is-working-tree-clean.sh
+
       - name: Lint code
         run: "npm run lint"
 

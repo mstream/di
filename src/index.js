@@ -1,3 +1,37 @@
+/**
+ * @module
+ */
+
+/**
+ * @typedef {function} BuildFn
+ * @returns {object}
+ */
+
+/**
+ * @typedef {function} RegisterFn
+ * @param {string} name
+ * @param {function} creator
+ * @returns {ContextBuilder}
+ */
+
+/**
+ * @typedef {function} RegisterEagerFn
+ * @param {string} name
+ * @param {function} creator
+ * @returns {ContextBuilder}
+ */
+
+/**
+ * @typedef {object} ContextBuilder
+ * @property {BuildFn} build - builds a context with registered dependencies inside it
+ * @property {RegisterFn} register - register a depenency
+ * @property {RegisterEagerFn} registerEager - registers an eager dependency
+ */
+
+/** Creates a builder which allow to register
+ * dependency creators.
+ * @returns {ContextBuilder}
+ */
 export function contextBuilder() {
   let wasBuilt = false
 
@@ -43,5 +77,9 @@ export function contextBuilder() {
     return this
   }
 
-  return { build, register, registerEager }
+  return {
+    build,
+    register,
+    registerEager,
+  }
 }
