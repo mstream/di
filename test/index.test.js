@@ -1,50 +1,69 @@
-import { describe, expect, it } from "vitest";
-import { createContainer } from "../src";
+import { describe, expect, it } from "vitest"
+import { contextBuilder } from "../src"
 
-describe(`createContainer()`, () => {
+describe(`contextBuilder`, () => {
   it(`allows to register and invoke creators`, () => {
-    const { string } = createContainer().register(
-      `string`,
-      () => `abc`
-    ).context;
+    const { foo } = contextBuilder()
+      .register(`foo`, () => 1)
+      .build()
 
-    expect(string).toBe(`abc`);
-  });
+    expect(foo).toBe(1)
+  })
+
   it(`does not call a creator until requested`, () => {
-    const { string } = createContainer()
+    const { foo } = contextBuilder()
       .register(`error`, () => {
-        throw Error();
+        throw Error()
       })
-      .register(`string`, () => `abc`).context;
+      .register(`foo`, () => 1)
+      .build()
 
-    expect(string).toBe(`abc`);
-  });
+    expect(foo).toBe(1)
+  })
+
+  it(`when registered as eager, calls creator imidiately on context creation`, () => {
+    expect(() =>
+      contextBuilder()
+        .registerEager(`error`, () => {
+          throw Error(`error`)
+        })
+        .build(),
+    ).toThrow(/error/)
+  })
+
   it(`allow registring creators in any order`, () => {
-    const { string } = createContainer()
-      .register(`string`, ({ number }) => `abc${number}`)
-      .register(`number`, () => 1).context;
+    const { foo } = contextBuilder()
+      .register(`foo`, ({ bar }) => bar + 1)
+      .register(`bar`, () => 1)
+      .build()
 
-    expect(string).toBe(`abc1`);
-  });
+    expect(foo).toBe(2)
+  })
+
   it(`fails when creator is not a function`, () => {
-    expect(() => createContainer().register(`string`, `abc`)).toThrow(
-      /"string" creator is not a function/
-    );
-  });
+    expect(() => contextBuilder().register(`foo`, 1)).toThrow(
+      /The creator of "foo" is not a function/,
+    )
+  })
+
   it(`prevents from overriding creators`, () => {
-    const container = createContainer().register(`string`, () => `abc`);
-    expect(() => container.register(`string`, () => `def`)).toThrow(
-      /"string" is already registered in the context/
-    );
-  });
+    expect(() =>
+      contextBuilder()
+        .register(`foo`, () => 1)
+        .register(`foo`, () => 1),
+    ).toThrow(/The "foo" is already registered in the context/)
+  })
+
   it(`does not execute creators more than once`, () => {
-    let counter = 0;
-    const { context } = createContainer().register(`string`, () => {
-      counter += 1;
-      return `abc`;
-    });
-    context.string;
-    expect(context.string).toBe(`abc`);
-    expect(counter).toBe(1);
-  });
-});
+    let counter = 0
+    const context = contextBuilder()
+      .register(`foo`, () => {
+        counter += 1
+        return 1
+      })
+      .build()
+    context.foo
+    expect(context.foo).toBe(1)
+    expect(counter).toBe(1)
+  })
+})
