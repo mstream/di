@@ -6,8 +6,9 @@
   "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "format": "prettier --write .",
-    "generate:docs": "rm -f docs/REFERENCE.md && jsdoc2md src/index.js > docs/REFERENCE.md",
+    "format:docs": "prettier --write docs",
+    "format": "npm run format:docs",
+    "generate:docs": "rm -f docs/REFERENCE.md && jsdoc2md src/index.js > docs/REFERENCE.md && npm run format:docs",
     "generate": "npm run generate:docs",
     "lint:commits": "commitlint --to HEAD",
     "lint:example": "cd example && npm run lint",
