@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest"
-import { contextBuilder } from "../src/di.js"
+import { contextBuilder } from "../dist/di.js"
 
 describe(`contextBuilder`, () => {
   it(`allows to register and invoke creators`, () => {

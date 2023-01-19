@@ -4,12 +4,13 @@
   "description": "",
   "private": false,
   "type": "module",
-  "main": "src/di.js",
+  "main": "dist/di.js",
+  "types": "dist/di.d.js",
   "scripts": {
+    "build": "tsc",
     "format:docs": "cd docs && npm run format",
-    "format:js": "prettier --write src && prettier --write test",
-    "format:md": "prettier --write *.md",
-    "format": "npm run format:docs && npm run format:js && npm run format:md",
+    "format:examples": "cd examples && npm run format",
+    "format": "prettier --write . && npm run format:docs && npm run format:examples",
     "generate:docs": "cd docs && npm run generate",
     "generate": "npm run generate:docs",
     "lint:commits": "commitlint --to HEAD",
@@ -43,6 +44,7 @@
     "markdown-link-check": "^3",
     "prettier": "^2",
     "standard-version": "^9",
+    "typescript": "^4",
     "vitest": "~0.27"
   }
 }

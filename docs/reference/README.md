@@ -1,3 +1,5 @@
+@mstream/di / [Exports](modules.md)
+
 # DI
 
 A dependency injection for JavaScript.

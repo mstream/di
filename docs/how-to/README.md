@@ -6,7 +6,7 @@
   {
     "hideValue": true,
     "type": "file",
-    "value": "src/js/dependency.js"
+    "value": "../src/js/dependency.js"
   }
 -->
 <!-- prettier-ignore -->

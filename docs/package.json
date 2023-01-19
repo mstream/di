@@ -7,12 +7,12 @@
   "scripts": {
     "format:js": "prettier --write src/js",
     "format": "npm run format:js",
-    "generate:howto": "markdown-inject HOW-TO.md && prettier --write HOW-TO.md",
-    "generate:reference": "rm -f REFERENCE.md && jsdoc2md ../src/di.js > REFERENCE.md && prettier --write REFERENCE.md",
-    "generate:tutorial": "markdown-inject TUTORIAL.md && prettier --write TUTORIAL.md",
+    "generate:howto": "markdown-inject how-to/README.md && prettier --write how-to",
+    "generate:reference": "typedoc --out reference ../src/ts/di.ts && prettier --write reference",
+    "generate:tutorial": "markdown-inject tutorial/README.md && prettier --write tutorial",
     "generate": "npm run format:js && npm run generate:howto && npm run generate:reference && npm run generate:tutorial",
     "lint:js": "eslint src/js",
-    "lint:md": "markdown-link-check HOW-TO.md && markdown-link-check TUTORIAL.md",
+    "lint:md": "find . -name '*.md' -not -path './node_modules/*' -exec markdown-link-check {} \\;",
     "lint": "prettier --check . && npm run lint:js && npm run lint:md"
   },
   "author": "Maciej Laciak <maciej.laciak@gmail.com> (https://github.com/mstream/)",
@@ -22,9 +22,10 @@
   },
   "devDependencies": {
     "eslint": "^8",
-    "jsdoc-to-markdown": "^8",
     "markdown-inject": "^3",
     "markdown-link-check": "^3",
-    "prettier": "^2"
+    "prettier": "^2",
+    "typedoc": "~0.23",
+    "typedoc-plugin-markdown": "^3"
   }
 }
