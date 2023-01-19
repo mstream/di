@@ -5,7 +5,7 @@ import loggerCreator, {
   ERROR,
   INFO,
   WARNING,
-} from "../src/logger.js"
+} from "../../src/js/logger.js"
 
 describe(`logger`, () => {
   it(`debug log is printed when logging level is set to debug`, () => {

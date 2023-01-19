@@ -1,6 +1,6 @@
 import sinon from "sinon"
 import { describe, expect, it } from "vitest"
-import appCreator from "../src/app.js"
+import appCreator from "../../src/js/app.js"
 
 describe(`app`, () => {
   it(`logs a message at every possible level`, () => {
