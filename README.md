@@ -4,6 +4,7 @@ A dependency injection for JavaScript.
 
 ## Documentation
 
+- [how-to guide](docs/HOW-TO.md)
 - [reference](docs/REFERENCE.md)
 
 ## Usage Examples

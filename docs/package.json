@@ -1,0 +1,29 @@
+{
+  "name": "@mstream/di-docs",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "format:js": "prettier --write src",
+    "format": "npm run format:js",
+    "generate:howto": "markdown-inject HOW-TO.md && prettier --write HOW-TO.md",
+    "generate:reference": "rm -f REFERENCE.md && jsdoc2md ../src/index.js > REFERENCE.md && prettier --write REFERENCE.md",
+    "generate": "npm run format:js && npm run generate:howto && npm run generate:reference",
+    "lint:js": "eslint .",
+    "lint:md": "markdown-link-check *.md",
+    "lint": "prettier --check . && npm run lint:js && npm run lint:md"
+  },
+  "author": "Maciej Laciak <maciej.laciak@gmail.com> (https://github.com/mstream/)",
+  "license": "ISC",
+  "dependencies": {
+    "@mstream/di": "file:.."
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "jsdoc-to-markdown": "^8",
+    "markdown-inject": "^3",
+    "markdown-link-check": "^3",
+    "prettier": "^2"
+  }
+}

@@ -15,17 +15,9 @@
  */
 
 /**
- * @typedef {function} RegisterEagerFn
- * @param {string} name
- * @param {function} creator
- * @returns {ContextBuilder}
- */
-
-/**
  * @typedef {object} ContextBuilder
  * @property {BuildFn} build - builds a context with registered dependencies inside it
  * @property {RegisterFn} register - register a depenency
- * @property {RegisterEagerFn} registerEager - registers an eager dependency
  */
 
 /** Creates a builder which allow to register
@@ -34,14 +26,11 @@
  */
 export function contextBuilder() {
   let wasBuilt = false
-
   const cache = {}
   const context = {}
-  const eagerMembers = []
 
   function build() {
     wasBuilt = true
-    eagerMembers.forEach((name) => context[name])
     return context
   }
 
@@ -59,7 +48,7 @@ export function contextBuilder() {
     }
 
     Object.defineProperty(context, name, {
-      get() {
+      get: function () {
         if (!(name in cache)) {
           cache[name] = creator(context)
         }
@@ -71,15 +60,8 @@ export function contextBuilder() {
     return this
   }
 
-  function registerEager(name, creator) {
-    eagerMembers.push(name)
-    register(name, creator)
-    return this
-  }
-
   return {
     build,
     register,
-    registerEager,
   }
 }

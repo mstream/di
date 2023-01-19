@@ -21,16 +21,6 @@ describe(`contextBuilder`, () => {
     expect(foo).toBe(1)
   })
 
-  it(`when registered as eager, calls creator imidiately on context creation`, () => {
-    expect(() =>
-      contextBuilder()
-        .registerEager(`error`, () => {
-          throw Error(`error`)
-        })
-        .build(),
-    ).toThrow(/error/)
-  })
-
   it(`allow registring creators in any order`, () => {
     const { foo } = contextBuilder()
       .register(`foo`, ({ bar }) => bar + 1)
