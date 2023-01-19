@@ -22,7 +22,6 @@
       { "blankLine": "always", "next": "*", "prev": "block-like" },
       { "blankLine": "always", "next": "block", "prev": "*" },
       { "blankLine": "always", "next": "block-like", "prev": "*" }
-    ],
-    "quotes": ["error", "backtick"]
+    ]
   }
 }

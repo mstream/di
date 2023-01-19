@@ -4,7 +4,7 @@
   "description": "",
   "private": false,
   "type": "module",
-  "main": "src/index.js",
+  "main": "src/di.js",
   "scripts": {
     "format:docs": "cd docs && npm run format",
     "format:js": "prettier --write src && prettier --write test",

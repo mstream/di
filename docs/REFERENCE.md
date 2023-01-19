@@ -1,44 +1,44 @@
-<a name="module_index"></a>
+<a name="module_di"></a>
 
-## index
+## di
 
-- [index](#module_index)
+- [di](#module_di)
   - _static_
-    - [.contextBuilder()](#module_index.contextBuilder) ⇒ <code>ContextBuilder</code>
+    - [.contextBuilder()](#module_di.contextBuilder) ⇒ <code>ContextBuilder</code>
   - _inner_
-    - [~BuildFn](#module_index..BuildFn) ⇒ <code>object</code>
-    - [~RegisterFn](#module_index..RegisterFn) ⇒ <code>ContextBuilder</code>
-    - [~ContextBuilder](#module_index..ContextBuilder) : <code>object</code>
+    - [~BuildFn](#module_di..BuildFn) ⇒ <code>object</code>
+    - [~RegisterFn](#module_di..RegisterFn) ⇒ <code>ContextBuilder</code>
+    - [~ContextBuilder](#module_di..ContextBuilder) : <code>object</code>
 
-<a name="module_index.contextBuilder"></a>
+<a name="module_di.contextBuilder"></a>
 
-### index.contextBuilder() ⇒ <code>ContextBuilder</code>
+### di.contextBuilder() ⇒ <code>ContextBuilder</code>
 
 Creates a builder which allow to register
 dependency creators.
 
-**Kind**: static method of [<code>index</code>](#module_index)  
-<a name="module_index..BuildFn"></a>
+**Kind**: static method of [<code>di</code>](#module_di)  
+<a name="module_di..BuildFn"></a>
 
-### index~BuildFn ⇒ <code>object</code>
+### di~BuildFn ⇒ <code>object</code>
 
-**Kind**: inner typedef of [<code>index</code>](#module_index)  
-<a name="module_index..RegisterFn"></a>
+**Kind**: inner typedef of [<code>di</code>](#module_di)  
+<a name="module_di..RegisterFn"></a>
 
-### index~RegisterFn ⇒ <code>ContextBuilder</code>
+### di~RegisterFn ⇒ <code>ContextBuilder</code>
 
-**Kind**: inner typedef of [<code>index</code>](#module_index)
+**Kind**: inner typedef of [<code>di</code>](#module_di)
 
 | Param   | Type                  |
 | ------- | --------------------- |
 | name    | <code>string</code>   |
 | creator | <code>function</code> |
 
-<a name="module_index..ContextBuilder"></a>
+<a name="module_di..ContextBuilder"></a>
 
-### index~ContextBuilder : <code>object</code>
+### di~ContextBuilder : <code>object</code>
 
-**Kind**: inner typedef of [<code>index</code>](#module_index)  
+**Kind**: inner typedef of [<code>di</code>](#module_di)  
 **Properties**
 
 | Name     | Type                    | Description                                             |
