@@ -6,6 +6,7 @@ A dependency injection for JavaScript.
 
 - [how-to guide](docs/HOW-TO.md)
 - [reference](docs/REFERENCE.md)
+- [tutorial](docs/TUTORIAL.md)
 
 ## Usage Examples
 

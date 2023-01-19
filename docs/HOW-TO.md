@@ -6,7 +6,7 @@
   {
     "hideValue": true,
     "type": "file",
-    "value": "src/dependency.js"
+    "value": "src/js/dependency.js"
   }
 -->
 <!-- prettier-ignore -->
@@ -33,7 +33,7 @@ contextBuilder()
   {
     "hideValue": true,
     "type": "command",
-    "value": "node src/dependency.js"
+    "value": "node src/js/dependency.js"
   }
 -->
 <!-- prettier-ignore -->
