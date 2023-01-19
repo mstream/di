@@ -8,7 +8,7 @@
     "format:js": "prettier --write src/js",
     "format": "npm run format:js",
     "generate:howto": "markdown-inject how-to/README.md && prettier --write how-to",
-    "generate:reference": "typedoc --disableSources --out reference ../src/ts/di.ts && prettier --write reference",
+    "generate:reference": "typedoc --disableSources --out reference --readme none ../src/ts/di.ts && prettier --write reference",
     "generate:tutorial": "markdown-inject tutorial/README.md && prettier --write tutorial",
     "generate": "npm run format:js && npm run generate:howto && npm run generate:reference && npm run generate:tutorial",
     "lint:js": "eslint src/js",

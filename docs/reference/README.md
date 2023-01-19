@@ -1,16 +1,19 @@
-@mstream/di / [Exports](modules.md)
+@mstream/di
 
-# DI
+# @mstream/di
 
-A dependency injection for JavaScript.
+## Table of contents
 
-## Documentation
+### Functions
 
-- [how-to guide](docs/how-to/README.md)
-- [reference](docs/reference/README.md)
-- [tutorial](docs/tutorial/README.md)
+- [contextBuilder](README.md#contextbuilder)
 
-## Usage Examples
+## Functions
 
-- [reference application](example/src/js/index.js)
-- [tests](test/js/di.test.js)
+### contextBuilder
+
+▸ **contextBuilder**(): `ContextBuilder`
+
+#### Returns
+
+`ContextBuilder`
