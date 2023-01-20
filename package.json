@@ -9,8 +9,8 @@
   "scripts": {
     "build": "tsc",
     "format:docs": "cd docs && npm run format",
-    "format:examples": "cd examples && npm run format",
-    "format": "prettier --write . && npm run format:docs && npm run format:examples",
+    "format:example": "cd example && npm run format",
+    "format": "prettier --write . && npm run format:docs && npm run format:example",
     "generate:docs": "cd docs && npm run generate",
     "generate": "npm run generate:docs",
     "lint:commits": "commitlint --to HEAD",

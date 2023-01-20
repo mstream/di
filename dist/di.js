@@ -4,8 +4,13 @@ class ContextBuilder {
         this.context = {};
         this.wasBuilt = false;
     }
-    build() {
+    build(options = { eagerly: false }) {
         this.wasBuilt = true;
+        if (options.eagerly) {
+            Object
+                .getOwnPropertyNames(this.context)
+                .forEach(name => this.context[name]);
+        }
         return this.context;
     }
     register(name, creator) {

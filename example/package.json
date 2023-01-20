@@ -6,6 +6,8 @@
   "type": "module",
   "main": "src/js/index.js",
   "scripts": {
+    "format:js": "prettier --write src/js test/js",
+    "format": "npm run format:js",
     "lint:js": "eslint --config ../.eslintrc.json .",
     "lint:md": "markdown-link-check *.md",
     "lint": "npm run lint:js && npm run lint:md",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "eslint": "^8",
     "markdown-link-check": "^3",
+    "prettier": "^2",
     "sinon": "^15",
     "vitest": "~0.27"
   }

@@ -10,7 +10,7 @@ describe(`contextBuilder`, () => {
     expect(foo).toBe(1)
   })
 
-  it(`does not call a creator until requested`, () => {
+  it(`by default, does not call a creator until requested`, () => {
     const { foo } = contextBuilder()
       .register(`error`, () => {
         throw Error()
@@ -19,6 +19,16 @@ describe(`contextBuilder`, () => {
       .build()
 
     expect(foo).toBe(1)
+  })
+
+  it(`call every creator during building the context eagerly`, () => {
+    expect(() =>
+      contextBuilder()
+        .register(`error`, () => {
+          throw Error("creator error")
+        })
+        .build({ eagerly: true }),
+    ).toThrow(/creator error/)
   })
 
   it(`allow registring creators in any order`, () => {

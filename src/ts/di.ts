@@ -3,8 +3,13 @@ class ContextBuilder {
   private context = {}
   private wasBuilt = false
 
-  build(): object {
+  build(options: { eagerly: boolean } = { eagerly: false }): object {
     this.wasBuilt = true
+    if (options.eagerly) {
+      Object.getOwnPropertyNames(this.context).forEach(
+        (name) => this.context[name],
+      )
+    }
     return this.context
   }
 
