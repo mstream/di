@@ -1,8 +1,8 @@
-import { contextBuilder } from "@mstream/di"
+import { ContextBuilder } from "@mstream/di"
 
 const englishGreeting = "Hello"
 
-contextBuilder()
+new ContextBuilder()
   .register("greeting", () => englishGreeting)
   .register(
     "hello",

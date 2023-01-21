@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest"
-import { contextBuilder } from "../../dist/di.js"
+import { ContextBuilder } from "../../dist/di.js"
 
-describe(`contextBuilder`, () => {
+describe(`ContextBuilder`, () => {
   it(`allows to register and invoke creators`, () => {
-    const { foo } = contextBuilder()
+    const { foo } = new ContextBuilder()
       .register(`foo`, () => 1)
       .build()
 
@@ -11,7 +11,7 @@ describe(`contextBuilder`, () => {
   })
 
   it(`by default, does not call a creator until requested`, () => {
-    const { foo } = contextBuilder()
+    const { foo } = new ContextBuilder()
       .register(`error`, () => {
         throw Error()
       })
@@ -23,7 +23,7 @@ describe(`contextBuilder`, () => {
 
   it(`call every creator during building the context eagerly`, () => {
     expect(() =>
-      contextBuilder()
+      new ContextBuilder()
         .register(`error`, () => {
           throw Error("creator error")
         })
@@ -32,7 +32,7 @@ describe(`contextBuilder`, () => {
   })
 
   it(`allow registring creators in any order`, () => {
-    const { foo } = contextBuilder()
+    const { foo } = new ContextBuilder()
       .register(`foo`, ({ bar }) => bar + 1)
       .register(`bar`, () => 1)
       .build()
@@ -41,14 +41,14 @@ describe(`contextBuilder`, () => {
   })
 
   it(`fails when creator is not a function`, () => {
-    expect(() => contextBuilder().register(`foo`, 1)).toThrow(
+    expect(() => new ContextBuilder().register(`foo`, 1)).toThrow(
       /The creator of "foo" is not a function/,
     )
   })
 
   it(`prevents from overriding creators`, () => {
     expect(() =>
-      contextBuilder()
+      new ContextBuilder()
         .register(`foo`, () => 1)
         .register(`foo`, () => 1),
     ).toThrow(/The "foo" is already registered in the context/)
@@ -56,7 +56,7 @@ describe(`contextBuilder`, () => {
 
   it(`does not execute creators more than once`, () => {
     let counter = 0
-    const context = contextBuilder()
+    const context = new ContextBuilder()
       .register(`foo`, () => {
         counter += 1
         return 1

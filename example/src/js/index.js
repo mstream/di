@@ -1,8 +1,8 @@
-import { contextBuilder } from "@mstream/di"
+import { ContextBuilder } from "@mstream/di"
 import appCreator from "./app.js"
 import loggerCreator, { WARNING } from "./logger.js"
 
-contextBuilder()
+new ContextBuilder()
   .register(`console`, () => console)
   .register(`config`, () => ({ logLevel: WARNING }))
   .register(`logger`, loggerCreator)

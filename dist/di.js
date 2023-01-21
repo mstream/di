@@ -1,4 +1,4 @@
-class ContextBuilder {
+export class ContextBuilder {
     constructor() {
         this.cache = {};
         this.context = {};
@@ -7,9 +7,7 @@ class ContextBuilder {
     build(options = { eagerly: false }) {
         this.wasBuilt = true;
         if (options.eagerly) {
-            Object
-                .getOwnPropertyNames(this.context)
-                .forEach(name => this.context[name]);
+            Object.getOwnPropertyNames(this.context).forEach((name) => this.context[name]);
         }
         return this.context;
     }
@@ -34,7 +32,4 @@ class ContextBuilder {
         });
         return this;
     }
-}
-export function contextBuilder() {
-    return new ContextBuilder();
 }

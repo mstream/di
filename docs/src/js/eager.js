@@ -1,8 +1,8 @@
-import { contextBuilder } from "@mstream/di"
+import { ContextBuilder } from "@mstream/di"
 
 console.info("Before the context is built.")
 
-const context = contextBuilder()
+const context = new ContextBuilder()
   .register("dependency", () => {
     console.info("Dependency initialization.")
     return () => console.info("Dependency execution.")

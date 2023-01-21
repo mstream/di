@@ -4,16 +4,6 @@
 
 ## Table of contents
 
-### Functions
+### Classes
 
-- [contextBuilder](README.md#contextbuilder)
-
-## Functions
-
-### contextBuilder
-
-▸ **contextBuilder**(): `ContextBuilder`
-
-#### Returns
-
-`ContextBuilder`
+- [ContextBuilder](classes/ContextBuilder.md)

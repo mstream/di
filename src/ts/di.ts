@@ -1,9 +1,13 @@
-class ContextBuilder {
+export class ContextBuilder {
   private cache = {}
   private context = {}
   private wasBuilt = false
 
-  build(options: { eagerly: boolean } = { eagerly: false }): object {
+  public constructor() {}
+
+  public build(
+    options: { eagerly: boolean } = { eagerly: false },
+  ): object {
     this.wasBuilt = true
     if (options.eagerly) {
       Object.getOwnPropertyNames(this.context).forEach(
@@ -13,7 +17,10 @@ class ContextBuilder {
     return this.context
   }
 
-  register(name: string, creator: (context: object) => any): this {
+  public register(
+    name: string,
+    creator: (context: object) => any,
+  ): this {
     if (this.wasBuilt) {
       throw Error(`The context has already been built.`)
     }
@@ -40,8 +47,4 @@ class ContextBuilder {
 
     return this
   }
-}
-
-export function contextBuilder() {
-  return new ContextBuilder()
 }
