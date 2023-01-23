@@ -25,9 +25,11 @@ jobs:
           (cd docs && npm ci)
 
       - name: Publish documentation
-        run: "npm run publish:docs"
+        run: | 
+          git remote set-url origin "https://x-access-token:${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}@github.com/${GITHUB_REPOSITORY}"
+          npm run publish:docs
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{  }}
 
       - name: Publish the package
         run: "npm run publish:package"
