@@ -23,11 +23,12 @@ jobs:
         run: |
           npm ci
           (cd docs && npm ci)
+      
+      - name: Set Git URL
+        run: "git remote set-url origin https://x-access-token:${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}@github.com/${GITHUB_REPOSITORY}"
 
       - name: Publish documentation
-        run: |
-          git remote set-url origin "https://x-access-token:${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}@github.com/${GITHUB_REPOSITORY}"
-          npm run publish:docs
+        run: "npm run publish:docs"
 
       - name: Publish the package
         run: "npm run publish:package"
