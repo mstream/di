@@ -27,7 +27,7 @@ jobs:
       - name: Publish documentation
         run: "npm run publish:docs"
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
 
       - name: Publish the package
         run: "npm run publish:package"
