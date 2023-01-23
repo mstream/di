@@ -24,6 +24,12 @@ jobs:
           npm ci
           (cd docs && npm ci)
 
+      - name: Set up git user email for releasing
+        run: 'git config --global user.email "ci@github.com"'
+
+      - name: Set up git user name for releasing
+        run: 'git config --global user.name "ci"'
+
       - name: Publish documentation
         run: "npm run publish:docs"
         env:
