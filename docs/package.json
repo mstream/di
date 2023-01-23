@@ -12,7 +12,7 @@
     "generate:tutorial": "markdown-inject src/md/tutorial/README.md && prettier --write src/md/tutorial",
     "generate": "npm run format && npm run generate:howto && npm run generate:reference && npm run generate:tutorial",
     "lint:js": "eslint src/js",
-    "lint:md": "find . -name '*.md' -not -name '_sidebar.md' -not -path './node_modules/*' -not -path './src/md/reference/*' -exec markdown-link-check {} \\;",
+    "lint:md": "find . -name '*.md' -not -name '_sidebar.md' -not -path './node_modules/*' -not -path './src/md/reference/*' -not -path './dist/*' -exec markdown-link-check {} \\;",
     "lint": "prettier --check . && npm run lint:js && npm run lint:md",
     "publish": "rm -rf dist && mkdir dist && cp {_sidebar.md,index.html} dist/ && cp --parents -R src/md dist/ && gh-pages -d dist",
     "start": "docsify serve ."

@@ -4,9 +4,9 @@ A dependency injection for JavaScript.
 
 ## Documentation
 
-- [how-to guide](docs/how-to/README.md)
-- [reference](docs/reference/README.md)
-- [tutorial](docs/tutorial/README.md)
+- [how-to guide](docs/src/md/how-to/README.md)
+- [reference](docs/src/md/reference/README.md)
+- [tutorial](docs/src/md/tutorial/README.md)
 
 ## Usage Examples
 
