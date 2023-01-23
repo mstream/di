@@ -6,7 +6,7 @@
   {
     "hideValue": true,
     "type": "file",
-    "value": "../src/bash/installation.sh"
+    "value": "../../bash/installation.sh"
   }
 -->
 <!-- prettier-ignore -->

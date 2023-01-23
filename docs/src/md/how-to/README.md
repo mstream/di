@@ -6,7 +6,7 @@
   {
     "hideValue": true,
     "type": "file",
-    "value": "../src/js/dependency.js"
+    "value": "../../js/dependency.js"
   }
 -->
 <!-- prettier-ignore -->
@@ -49,7 +49,7 @@ Hello John!
   {
     "hideValue": true,
     "type": "file",
-    "value": "../src/js/eager.js"
+    "value": "../../js/eager.js"
   }
 -->
 <!-- prettier-ignore -->

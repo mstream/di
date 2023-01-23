@@ -1,4 +1,4 @@
-[@mstream/di](../README.md) / ContextBuilder
+[@mstream/di](src/md/reference/README.md) / ContextBuilder
 
 # Class: ContextBuilder
 
@@ -6,12 +6,12 @@
 
 ### Constructors
 
-- [constructor](ContextBuilder.md#constructor)
+- [constructor](src/md/reference/classes/ContextBuilder.md#constructor)
 
 ### Methods
 
-- [build](ContextBuilder.md#build)
-- [register](ContextBuilder.md#register)
+- [build](src/md/reference/classes/ContextBuilder.md#build)
+- [register](src/md/reference/classes/ContextBuilder.md#register)
 
 ## Constructors
 
@@ -40,7 +40,7 @@
 
 ### register
 
-▸ **register**(`name`, `creator`): [`ContextBuilder`](ContextBuilder.md)
+▸ **register**(`name`, `creator`): [`ContextBuilder`](src/md/reference/classes/ContextBuilder.md)
 
 #### Parameters
 
@@ -51,4 +51,4 @@
 
 #### Returns
 
-[`ContextBuilder`](ContextBuilder.md)
+[`ContextBuilder`](src/md/reference/classes/ContextBuilder.md)

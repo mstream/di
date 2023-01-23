@@ -21,8 +21,13 @@ jobs:
 
       - name: Install dependencies
         run: "npm ci"
+      
+      - name: Publish documentation
+        run: "npm run publish:docs"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish the package
-        run: "npm publish --access public"
+        run: "npm run publish:package"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -6,14 +6,16 @@
   "type": "module",
   "scripts": {
     "format:js": "prettier --write src/js",
-    "format": "npm run format:js",
-    "generate:howto": "markdown-inject how-to/README.md && prettier --write how-to",
-    "generate:reference": "typedoc --disableSources --excludePrivate --out reference --readme none ../src/ts/di.ts && prettier --write reference",
-    "generate:tutorial": "markdown-inject tutorial/README.md && prettier --write tutorial",
-    "generate": "npm run format:js && npm run generate:howto && npm run generate:reference && npm run generate:tutorial",
+    "format": "prettier --write .",
+    "generate:howto": "markdown-inject src/md/how-to/README.md && prettier --write src/md/how-to",
+    "generate:reference": "typedoc --disableSources --excludePrivate --out src/md/reference --readme none ../src/ts/di.ts && ./fix-links.sh && prettier --write src/md/reference",
+    "generate:tutorial": "markdown-inject src/md/tutorial/README.md && prettier --write src/md/tutorial",
+    "generate": "npm run format && npm run generate:howto && npm run generate:reference && npm run generate:tutorial",
     "lint:js": "eslint src/js",
-    "lint:md": "find . -name '*.md' -not -path './node_modules/*' -exec markdown-link-check {} \\;",
-    "lint": "prettier --check . && npm run lint:js && npm run lint:md"
+    "lint:md": "find . -name '*.md' -not -name '_sidebar.md' -not -path './node_modules/*' -not -path './src/md/reference/*' -exec markdown-link-check {} \\;",
+    "lint": "prettier --check . && npm run lint:js && npm run lint:md",
+    "publish": "rm -rf dist && mkdir dist && cp {_sidebar.md,index.html} dist/ && cp --parents -R src/md dist/ && gh-pages -d dist", 
+    "start": "docsify serve ."
   },
   "author": "Maciej Laciak <maciej.laciak@gmail.com> (https://github.com/mstream/)",
   "license": "ISC",
@@ -21,7 +23,9 @@
     "@mstream/di": "file:.."
   },
   "devDependencies": {
+    "docsify-cli": "^4",
     "eslint": "^8",
+    "gh-pages": "^5",
     "markdown-inject": "^3",
     "markdown-link-check": "^3",
     "prettier": "^2",
