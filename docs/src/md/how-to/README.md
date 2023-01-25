@@ -1,4 +1,8 @@
-# How-to guides
+---
+layout: page
+title: How-to guides
+permalink: /how-to/
+---
 
 ## Make a function depend on an injectable value
 

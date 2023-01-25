@@ -1,3 +1,9 @@
+---
+layout: page
+title: Reference
+permalink: /reference/
+---
+
 @mstream/di
 
 # @mstream/di
@@ -6,4 +12,4 @@
 
 ### Classes
 
-- [ContextBuilder](src/md/reference/classes/ContextBuilder.md)
+- [ContextBuilder](classes/ContextBuilder.md)

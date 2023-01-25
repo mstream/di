@@ -4,7 +4,7 @@
     "node": true,
     "es6": true
   },
-  "ignorePatterns": ["/dist"],
+  "ignorePatterns": ["/.direnv", "/dist", "/docs/_site"],
   "parserOptions": {
     "ecmaVersion": 2021,
     "sourceType": "module"

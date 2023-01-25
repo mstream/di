@@ -1,4 +1,8 @@
-# Tutorial
+---
+layout: page
+title: Tutorial
+permalink: /tutorial/
+---
 
 ## Installation
 

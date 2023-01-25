@@ -1,0 +1,21 @@
+color_scheme: dark
+favicon_ico: "/assets/images/favicon.ico"
+heading_anchors: true
+logo: "/assets/images/favicon-32x32.png"
+search_enabled: true
+
+incremental: false
+theme: just-the-docs
+safe: true
+strict_front_matter: true
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
